@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
                     <div class="card card-register">
-                        <h3 class="title">Welcome</h3>
+                        <h3 class="title">Bienvenido</h3>
                         <div class="social-line text-center">
                             <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                                 <i class="fa fa-facebook-square"></i>
@@ -17,7 +17,7 @@
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </div>
-                        <form class="register-form">
+                        <form class="register-form" #f="ngForm" (ngSubmit)="login( f )">
                             <label>Email</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                                 <div class="input-group-prepend">
@@ -26,7 +26,9 @@
                                   </span>
                                 </div>
 
-                                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false">
+                                <input class="form-control" type="email" name="email" [(ngModel)]="usuario.email" required email placeholder="Email">
+                                <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger animated fadeIn">El correo es obligatorio</span>
+
                             </div>
 
                             <label>Password</label>
@@ -36,9 +38,13 @@
                                       <i class="nc-icon nc-key-25"></i>
                                   </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false">
+
+                                <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="usuario.password" minlength="6" required>
+                                <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger animated fadeIn">El correo es obligatorio</span>
                             </div>
-                            <button class="btn btn-danger btn-block btn-round">Register</button>
+                            <button class="btn btn-danger btn-block btn-round" type="submit">Login</button>
+                            <button class="btn btn-danger btn-block btn-round" (click)="goToRegister()">Register</button>
+
                         </form>
                         <div class="forgot">
                             <a href="#" class="btn btn-link btn-danger">Forgot password?</a>

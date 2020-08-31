@@ -1,0 +1,64 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
+        <div class="filter"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <h3 class="title">Bienvenido</h3>
+                        <div class="social-line text-center">
+                            <a href="#" class="btn btn-neutral btn-facebook btn-just-icon">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a href="#" class="btn btn-neutral btn-google btn-just-icon">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="#" class="btn btn-neutral btn-twitter btn-just-icon">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                        <form class="register-form" #f="ngForm" (ngSubmit)="onSubmit( f )">
+                            <label>Email</label>
+                            <div class="input-group form-group-no-border">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                  </span>
+                                </div>
+                                <input class="form-control" type="email" name="email" [(ngModel)]="usuario.email" required email placeholder="Email">
+                                <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger animated fadeIn">El correo es obligatorio</span>
+                            </div>
+
+                            <label>Nombre</label>
+                            <div class="input-group form-group-no-border">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                  </span>
+                                </div>
+
+                                <input type="text" class="form-control" placeholder="Nombre y apellido" name="nombre" [(ngModel)]="usuario.nombre" minlength="2" required>
+                                <span *ngIf="f.submitted && f.controls['nombre'].errors" class="text-danger animated fadeIn">El nombre es obligatorio</span>
+                            </div>
+
+                            <label>Password</label>
+                            <div class="input-group form-group-no-border">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="usuario.password" minlength="6" required>
+                                <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger animated fadeIn">El password es obligatorio</span>
+                            </div>
+                            <button class="btn btn-danger btn-block btn-round">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer register-footer text-center">
+                <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by AEV</h6>
+            </div>
+        </div>
+    </div>
+</div>

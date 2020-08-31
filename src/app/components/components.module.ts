@@ -19,6 +19,8 @@ import { RetratosComponent } from './galeria/retratos/retratos.component';
 import { NaturalezaComponent } from './galeria/naturaleza/naturaleza.component';
 import { ViajesComponent } from './galeria/viajes/viajes.component';
 import { ComunidadComponent } from './comunidad/comunidad.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from 'app/shared/navbar/navbar.component';
 
 @NgModule({
     imports: [
@@ -42,7 +44,8 @@ import { ComunidadComponent } from './comunidad/comunidad.component';
         RetratosComponent,
         NaturalezaComponent,
         ViajesComponent,
-        ComunidadComponent
+        ComunidadComponent,
+        RegisterComponent
     ],
     entryComponents: [NgbdModalContent],
     exports:[ ComponentsComponent ]

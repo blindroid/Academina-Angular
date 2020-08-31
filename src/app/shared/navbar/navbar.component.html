@@ -1,7 +1,14 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
     <div class="container">
+
         <div class="navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
+                <li *ngIf="emailUser !== null" class="nav-item">
+                    <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-bank" aria-hidden="true"></i>Bienvenido: {{emailUser}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" [routerLink]="['/home']">
                         <i class="fa fa-home"></i>
@@ -32,10 +39,10 @@
                         <p class="d-lg-none">GitHub</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!--li class="nav-item">
                     <a class="nav-link" [routerLink]="['/learning']"><i class="fa fa-book" aria-hidden="true"></i> Aprende con nosotros</a>
-                </li>
-                <li class="nav-item">
+                </li-->
+                <li *ngIf="emailUser !== null" class="nav-item">
                     <div ngbDropdown class="d-inline-transparent dropdown">
                         <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-camera-retro" aria-hidden="true"></i>Galer&iacute;a</a>
 
@@ -46,14 +53,16 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="emailUser !== null" class="nav-item">
                     <a class="nav-link" [routerLink]="['/comunidad']"><i class="fa fa-heart" aria-hidden="true"></i> Apoya a la comunidad</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="!(emailUser !== null)" class="nav-item">
                     <a class="nav-link" [routerLink]="['/signup']"><i class="fa fa-key" aria-hidden="true"></i> Ingresar </a>
                 </li>
 
-
+                <li *ngIf="emailUser !== null" class="nav-item">
+                    <a class="nav-link" (click)="salir()"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                </li>
 
 
 
